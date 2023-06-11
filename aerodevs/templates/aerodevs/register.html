@@ -1,0 +1,92 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title>Registration Page</title>  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>   
+    body {  
+        font-family: Calibri, Helvetica, sans-serif;  
+        background-color: rgb(255, 255, 255);  
+    }
+    
+    .register-form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: rgb(173, 216, 230);
+        padding: 25px;
+        border: 3px solid #6699cc;
+        border-radius: 10px;
+        margin-top: 100px;
+    }
+
+    .register-form h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #6699cc;
+    }
+
+    .form-control {
+        border-color: #6699cc;
+    }
+
+    .register-btn {
+        background-color: #6699cc;
+        color: rgb(255, 255, 255);
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .register-btn:hover {
+        opacity: 0.7;
+    }
+</style>   
+</head>    
+<body>    
+    <div class="register-form">
+        <h1>Registration Form</h1>
+        <form action="{% url 'register' %}" method="post"> 
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmation">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirmation" placeholder="Confirm Password" name="confirmation" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Choose Role:</label>
+                <select class="form-control" name="role" id="role">
+                    <option value="M">Manufacturer</option>
+                    <option value="R">Recycler</option>
+                    <option value="A">Airline</option>
+                </select>
+            </div>
+            <button type="submit" class="register-btn">Register</button>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="remember-me" checked>
+                <label class="form-check-label" for="remember-me">Remember me</label>
+            </div>
+            <button type="button" class="btn btn-secondary cancelbtn">Cancel</button>
+            <p class="text-center"><a href="#">Forgot password?</a></p>
+            <p class="text-center"><a href="{% url 'login' %}">Already Registered? Login Here</a></p>
+
+        </form>
+    </div>
+
+   
+  {% include 'aerodevs/footer.html' %}
+</body>     
+</html>  
