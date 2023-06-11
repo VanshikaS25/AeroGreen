@@ -29,3 +29,4 @@
 	python manage.py runserver
 6. **Start the development server:**
 	Open a web browser and visit [http://localhost:8000](http://localhost:8000/) to view the application.
+# AeroGreen
